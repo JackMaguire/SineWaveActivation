@@ -1,3 +1,15 @@
+from tensorflow.python.framework import dtypes
+from tensorflow.python.keras import backend
+from tensorflow.python.keras import constraints
+from tensorflow.python.keras import initializers
+from tensorflow.python.keras import regularizers
+from tensorflow.python.keras.engine.base_layer import Layer
+from tensorflow.python.keras.engine.input_spec import InputSpec
+from tensorflow.python.keras.utils import tf_utils
+from tensorflow.python.ops import math_ops
+from tensorflow.python.util.tf_export import keras_export
+
+@keras_export('keras.layers.SingleSineWaveActivation')
 class SingleSineWaveActivation(Layer):
   """Parametric Rectified Linear Unit.
   It follows:
