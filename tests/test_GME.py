@@ -17,7 +17,7 @@ class MultipleSineWaveActivationAnalyzer:
   def analyze( self, x ):
     vals = [ self.weights[0], ]
     for i in range( 1, len(self.weights), 3 ):
-        vals.append( self.weights[i] * math.sin( self.weights[i+1] * x + self.weights[i+2] ) )
+        vals.append( self.weights[i] * math.sin( 20*self.weights[i+1] * x + self.weights[i+2] ) )
     vals.append( sum(vals) )
     return vals
 

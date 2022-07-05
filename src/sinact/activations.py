@@ -107,7 +107,7 @@ class SingleSineWaveActivation(Layer):
     y = tf.math.multiply(
       self.alpha1,
       tf.math.sin( tf.math.add(
-        (self.alpha2*inputs*tf.constant(10.0)),
+        (self.alpha2*inputs*tf.constant(20.0)),
         self.alpha3
       ) )
     )
