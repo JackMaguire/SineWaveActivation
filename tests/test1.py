@@ -20,7 +20,6 @@ def test2( nwaves ):
     model.compile(optimizer='adam', loss='mean_squared_error')
     print( model.summary() )
 
-
 if __name__ == '__main__':
     test1()
     test2(1)
