@@ -24,6 +24,6 @@ setup(
     zip_safe=False,
     python_requires='>=3.6.0',
     install_requires=[
-        'tensorflow>=2.1.0',
+        #'tensorflow>=2.1.0',
     ],
 )
