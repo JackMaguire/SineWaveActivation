@@ -196,16 +196,21 @@ class MultipleSineWaveActivation(Layer):
           self.built = True
 
   def call(self, inputs):
-    y = self.bias
+    y = None # self.bias
     for w in self.waves:
-      tf.math.add( y, w(inputs) )
+      if y == None:
+        y = w(inputs)
+      else:
+        y = tf.math.add( y, w(inputs) )
+    if self.use_bias:
+      y = tf.math.add( y, self.bias )
     return y
 
   def get_config(self):
     config = {
-      'alpha_initializer': initializers.serialize(self.alpha_initializer),
-      'alpha_regularizer': regularizers.serialize(self.alpha_regularizer),
-      'alpha_constraint': constraints.serialize(self.alpha_constraint),
+      'alpha_initializer': self.alpha_initializer,
+      'alpha_regularizer': self.alpha_regularizer,
+      'alpha_constraint': self.alpha_constraint,
       'bias_initializer': initializers.serialize(self.bias_initializer),
       'bias_regularizer': regularizers.serialize(self.bias_regularizer),
       'bias_constraint': constraints.serialize(self.bias_constraint),
@@ -218,3 +223,4 @@ class MultipleSineWaveActivation(Layer):
   @tf_utils.shape_type_conversion
   def compute_output_shape(self, input_shape):
     return input_shape
+
