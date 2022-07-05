@@ -191,6 +191,9 @@ class PReLU(Layer):
         initializer=self.alpha_initializer,
         regularizer=self.alpha_regularizer,
         constraint=self.alpha_constraint)
+
+    print( self._trainable_weights )
+
     # Set input spec
     axes = {}
     if self.shared_axes:
