@@ -87,4 +87,4 @@ if __name__ == '__main__':
     #indata = data[:,0]
     #print( indata.shape )
 
-    test( 5000, data )
+    test( 1000, data )
