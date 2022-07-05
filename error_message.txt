@@ -1,0 +1,23 @@
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ A_in (InputLayer)              [(None, 5)]          0           []                               
+                                                                                                  
+ tf.math.negative (TFOpLambda)  (None, 5)            0           ['A_in[0][0]']                   
+                                                                                                  
+ tf.nn.relu_1 (TFOpLambda)      (None, 5)            0           ['tf.math.negative[0][0]']       
+                                                                                                  
+ tf.nn.relu (TFOpLambda)        (None, 5)            0           ['A_in[0][0]']                   
+                                                                                                  
+ tf.math.multiply (TFOpLambda)  (None, 5)            0           ['tf.nn.relu_1[0][0]']           
+                                                                                                  
+ tf.__operators__.add (TFOpLamb  (None, 5)           0           ['tf.nn.relu[0][0]',             
+ da)                                                              'tf.math.multiply[0][0]']       
+                                                                                                  
+ p_re_lu (PReLU)                (None, 5)            5           ['A_in[0][0]']                   
+                                                                                                  
+==================================================================================================
+Total params: 5
+Trainable params: 5
+Non-trainable params: 0
+__________________________________________________________________________________________________
