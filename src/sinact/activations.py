@@ -1,12 +1,23 @@
 import tensorflow as tf
+
+if False:
+  from tensorflow.python.keras import backend
+  from tensorflow.python.keras import constraints
+  from tensorflow.python.keras import initializers
+  from tensorflow.python.keras import regularizers
+  from tensorflow.python.keras.engine.base_layer import Layer
+  from tensorflow.python.keras.engine.input_spec import InputSpec
+  from tensorflow.python.keras.utils import tf_utils
+else:
+  from keras import backend
+  from keras import constraints
+  from keras import initializers
+  from keras import regularizers
+  from keras.engine.base_layer import Layer
+  from keras.engine.input_spec import InputSpec
+  from keras.utils import tf_utils
+
 from tensorflow.python.framework import dtypes
-from tensorflow.python.keras import backend
-from tensorflow.python.keras import constraints
-from tensorflow.python.keras import initializers
-from tensorflow.python.keras import regularizers
-from tensorflow.python.keras.engine.base_layer import Layer
-from tensorflow.python.keras.engine.input_spec import InputSpec
-from tensorflow.python.keras.utils import tf_utils
 from tensorflow.python.ops import math_ops
 from tensorflow.python.util.tf_export import keras_export
 
@@ -63,6 +74,9 @@ class SingleSineWaveActivation(Layer):
       constraint=self.alpha_constraint,
       trainable=True
     )
+
+    print( self._trainable_weights )
+
     '''
     self.a1 = tf.Variable(
       initial_value=self.alpha_initializer(shape=param_shape, dtype="float32"),
@@ -191,8 +205,6 @@ class PReLU(Layer):
         initializer=self.alpha_initializer,
         regularizer=self.alpha_regularizer,
         constraint=self.alpha_constraint)
-
-    print( self._trainable_weights )
 
     # Set input spec
     axes = {}
