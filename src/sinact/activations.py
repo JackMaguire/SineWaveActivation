@@ -216,6 +216,7 @@ class MultipleSineWaveActivation(Layer):
       'bias_constraint': constraints.serialize(self.bias_constraint),
       'shared_axes': self.shared_axes,
       'use_bias': self.use_bias,
+      'nwaves' : len(self.waves),
     }
     base_config = super(MultipleSineWaveActivation, self).get_config()
     return dict(list(base_config.items()) + list(config.items()))
